@@ -18,10 +18,10 @@
     (function () {
       window.addEventListener('message', event => {
         try {
-          let data = JSON.parse(event.data)
+          const data = JSON.parse(event.data)
           if (data['msg'] !== 'THIRD_PARTY_COOKIE_TEST')
             return
-          let result = checkCookiesEnable()
+          const result = checkCookiesEnable()
           parent.postMessage(JSON.stringify({
             'result': result
           }), event.origin)
