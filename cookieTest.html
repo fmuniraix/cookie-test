@@ -7,14 +7,14 @@
 <body>
   <script>
     const checkCookiesEnable = () => {
-      let isCookieEnabled = (window.navigator.cookieEnabled) ? true : false;
+      let isCookieEnabled = window.navigator.cookieEnabled;
       if (typeof window.navigator.cookieEnabled == "undefined" && !isCookieEnabled) {
         document.cookie = "testcookie";
-        isCookieEnabled = (document.cookie.indexOf("testcookie") != -1) ? true : false;
+        isCookieEnabled = document.cookie.indexOf("testcookie") !== -1;
       }
-
       return isCookieEnabled;
     }
+
     (function () {
       window.addEventListener('message', event => {
         try {
